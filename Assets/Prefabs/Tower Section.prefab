@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543c39360ad9a34d929f8c2829ce179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
+  floor: -10

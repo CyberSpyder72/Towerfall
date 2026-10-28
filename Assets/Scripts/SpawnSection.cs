@@ -11,6 +11,7 @@ public class SpawnSection : MonoBehaviour
     public float sectionHeight; //how tall is the section in units from the bottom to the top
     public float sectionSpeed; // how fast does each section move downwards
     public int yOffset; //how high up do we want the sections to spawn  
+
     private Vector3 sectionSpawnPos;
 
     public List<GameObject> sections;

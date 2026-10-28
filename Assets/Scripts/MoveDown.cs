@@ -4,6 +4,8 @@ public class MoveDown : MonoBehaviour
 {
     private SpawnSection spawnSection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public int floor; //When do we want to remove this section
     void Start()
     {
         spawnSection = GameObject.Find("GameManager").GetComponent<SpawnSection>();
@@ -15,6 +17,10 @@ public class MoveDown : MonoBehaviour
         if (spawnSection.isGameActive)
         {
             transform.Translate(Vector3.back * Time.deltaTime * spawnSection.sectionSpeed);
+        }
+        if(transform.position.y <= floor)
+        {
+            Destroy(gameObject);
         }
     }
 }
