@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
 
     private Rigidbody playerRb;
+    public Animator animator;
 
 
     public InputAction moveAction;
@@ -53,9 +54,18 @@ public class Player : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 180, 0); ;     //these two "if" statements change the direction the player is facing in game. this is good for animations.
         }
-        if (moveInput.x == 1)
+        else if (moveInput.x == 1)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0); ;
+        }
+
+        if(moveInput.x != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else if(moveInput.x == 0)
+        {
+            animator.SetBool("isRunning", false);
         }
 
         //Jumping

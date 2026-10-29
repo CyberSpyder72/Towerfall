@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61ff18f8761562439c92e90f110d681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  animator: {fileID: 1213115414}
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -316,6 +317,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  moveInput: {x: 0, y: 0}
   jumpAction:
     m_Name: Jump
     m_Type: 0
@@ -518,7 +520,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1781194206764811373, guid: 53baf286a4bf3cc40999025c1a39f68e, type: 3}
+  m_Sprite: {fileID: 1125142341622394454, guid: 4c17d89c79b23ba4b91d559500456e41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -561,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61ff18f8761562439c92e90f110d681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  animator: {fileID: 0}
   moveAction:
     m_Name: Move
     m_Type: 0
@@ -611,6 +614,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  moveInput: {x: 0, y: 0}
   jumpAction:
     m_Name: Jump
     m_Type: 0
