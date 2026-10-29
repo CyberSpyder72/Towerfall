@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
 
     public InputAction moveAction;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     private int speed = 5;
     
 
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
         if (moveInput.x == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0); ;
+            transform.rotation = Quaternion.Euler(0, 180, 0); ;     //these two "if" statements change the direction the player is facing in game. this is good for animations.
         }
         if (moveInput.x == 1)
         {
