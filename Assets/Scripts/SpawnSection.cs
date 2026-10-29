@@ -21,12 +21,36 @@ public class SpawnSection : MonoBehaviour
     
     void Start()
     {
-        sectionHeight = (sections[0].transform.localScale.x) * 2;
+        sectionHeight = (sections[0].transform.localScale.z) * 10;
         sectionSpawnPos = new Vector3(0, sectionHeight + yOffset, 0);
-        waitTime = sectionHeight / sectionSpeed * 2; // the equation for time is (distance / speed) so to see how long we should wait before spawning another section we
-                                                     // see how far the section goes and divide it by how fast its moving.
-        //int index = UnityEngine.Random.Range(0, sections.Count);
-        //Instantiate(sections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
+        waitTime = sectionHeight / sectionSpeed; // the equation for time is (distance / speed) so to see how long we should wait before spawning another section we
+                                                 // see how far the section goes and divide it by how fast its moving.
+                                                 //int index = UnityEngine.Random.Range(0, sections.Count);
+                                                 //Instantiate(sections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
+
+        for (int i = 0; i <= 3; i++) 
+        {
+            if (i == 0)
+            {
+                int index = UnityEngine.Random.Range(0, sections.Count);
+                Instantiate(sections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
+            }
+            else if (i == 1)
+            {
+                int index = UnityEngine.Random.Range(0, sections.Count);
+                Instantiate(sections[index], new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - sectionHeight, sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
+            }
+            else if (i == 2)
+            {
+                int index = UnityEngine.Random.Range(0, sections.Count);
+                Instantiate(sections[index], new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (2 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
+            }
+            else if (i == 3)
+            {
+                int index = UnityEngine.Random.Range(0, sections.Count);
+                Instantiate(sections[index], new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (3 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
+            }
+        }
         StartCoroutine(SpawnSections());
     }
 
