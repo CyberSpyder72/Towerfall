@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private bool IsOnGround = true;
 
     private float zCenter = -2; //To make sure they don't become misaligned
-    private Quaternion startRotation = quaternion.Euler(0,0,0);
+    //private Quaternion startRotation = Quaternion.Euler(0,0,0);
 
     private float playerBumpForce = 2.5f; //How much players push eachother
 
@@ -37,8 +37,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
-        transform.rotation = startRotation;
+        //transform.rotation = startRotation;
         if(transform.position.z != zCenter)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zCenter);
@@ -46,11 +47,20 @@ public class Player : MonoBehaviour
 
         //Movement
         moveInput = moveAction.ReadValue<Vector2>();
-        transform.Translate(Vector3.right * moveInput.x * Time.deltaTime * speed);
+        transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed);
+
+        if (moveInput.x == -1)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0); ;
+        }
+        if (moveInput.x == 1)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0); ;
+        }
 
         //Jumping
 
-        if(jumpAction.triggered && IsOnGround)
+        if (jumpAction.triggered && IsOnGround)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             IsOnGround = false;
