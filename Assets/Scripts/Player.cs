@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject gameController; //Reference to the game controller
 
     private Rigidbody playerRb;
     public Animator animator;
@@ -27,7 +28,12 @@ public class Player : MonoBehaviour
 
     private float playerBumpForce = 2.5f; //How much players push eachother
 
+
+    //Game Overs
+    private float killFloor = -20;
+    public bool isDead = false;
     
+
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -69,11 +75,18 @@ public class Player : MonoBehaviour
         }
 
         CheckAnimationStates(); 
+
+        //Dying
+        if(transform.position.y < killFloor)
+        {
+            isDead = true;
+            gameController.GetComponent<SpawnSection>().GameOver();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && transform.position.y > collision.transform.position.y)
         {
             IsOnGround = true;
         }
