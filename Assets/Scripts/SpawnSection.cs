@@ -15,6 +15,7 @@ public class SpawnSection : MonoBehaviour
     private Vector3 sectionSpawnPos;
 
     public List<GameObject> sections;
+    public GameObject startSection;
 
 
     public bool isGameActive = true;
@@ -43,12 +44,12 @@ public class SpawnSection : MonoBehaviour
             else if (i == 2)
             {
                 int index = UnityEngine.Random.Range(0, sections.Count);
-                Instantiate(sections[index], new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (2 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
+                Instantiate(startSection, new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (2 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
             }
             else if (i == 3)
             {
-                int index = UnityEngine.Random.Range(0, sections.Count);
-                Instantiate(sections[index], new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (3 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
+                //nt index = UnityEngine.Random.Range(0, sections.Count);
+                Instantiate(startSection, new Vector3(sectionSpawnPos.x, sectionSpawnPos.y - (3 * sectionHeight), sectionSpawnPos.z), Quaternion.Euler(270f, 0, 0));
             }
         }
         StartCoroutine(SpawnSections());

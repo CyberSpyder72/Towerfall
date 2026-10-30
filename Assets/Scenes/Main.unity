@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &489633260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 489633259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.96473, y: 0, z: -0.99387}
+  m_LocalPosition: {x: 1.82, y: 0, z: -0.99387}
   m_LocalScale: {x: 36.217636, y: 1, z: 4.2219}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,7 +408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.41, y: 1.76}
+  m_AnchoredPosition: {x: 11.84, y: 1.76}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1213115414
@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1288178844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,11 +936,12 @@ MonoBehaviour:
   sectionSpeed: 1
   yOffset: 15
   sections:
-  - {fileID: 2643051766425193729, guid: 5c44fe390ece35845a8bb7f8f0189037, type: 3}
-  - {fileID: 2643051766425193729, guid: 5c44fe390ece35845a8bb7f8f0189037, type: 3}
-  - {fileID: 2643051766425193729, guid: 5c44fe390ece35845a8bb7f8f0189037, type: 3}
-  - {fileID: 2643051766425193729, guid: 5c44fe390ece35845a8bb7f8f0189037, type: 3}
-  - {fileID: 2643051766425193729, guid: 5c44fe390ece35845a8bb7f8f0189037, type: 3}
+  - {fileID: 8027604593542996346, guid: c4a1631b192474b4b81e538b37910a31, type: 3}
+  - {fileID: 361782333607150884, guid: ea1956c2129204e40a2996cbd51a4c76, type: 3}
+  - {fileID: 8027604593542996346, guid: c4a1631b192474b4b81e538b37910a31, type: 3}
+  - {fileID: 361782333607150884, guid: ea1956c2129204e40a2996cbd51a4c76, type: 3}
+  - {fileID: 8027604593542996346, guid: c4a1631b192474b4b81e538b37910a31, type: 3}
+  startSection: {fileID: 5273528373719490730, guid: 0c49f3d2a4095e5478a9035889e6bcfd, type: 3}
   isGameActive: 1
 --- !u!4 &1370900563
 Transform:

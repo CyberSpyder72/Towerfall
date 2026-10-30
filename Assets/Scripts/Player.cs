@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground") && transform.position.y > collision.transform.position.y)
         {
             IsOnGround = true;
         }
