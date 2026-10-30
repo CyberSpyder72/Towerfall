@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
 
 
     public InputAction moveAction;
-    public Vector2 moveInput;
-    private int speed = 5;
+    private Vector2 moveInput;
+    public int speed = 5;
     
 
 
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
         //Movement
         moveInput = moveAction.ReadValue<Vector2>();
-        transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed);
+        transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed); 
 
         if (moveInput.x == -1)
         {
@@ -59,14 +59,6 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0); ;
         }
 
-        if(moveInput.x != 0)
-        {
-            animator.SetBool("isRunning", true);
-        }
-        else if(moveInput.x == 0)
-        {
-            animator.SetBool("isRunning", false);
-        }
 
         //Jumping
 
@@ -75,6 +67,8 @@ public class Player : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             IsOnGround = false;
         }
+
+        CheckAnimationStates(); 
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -87,6 +81,27 @@ public class Player : MonoBehaviour
         {
             Vector3 bumpPlayers = (transform.position - collision.gameObject.transform.position);
             playerRb.AddForce(bumpPlayers * playerBumpForce, ForceMode.Impulse);
+        }
+    }
+
+    private void CheckAnimationStates()
+    {
+        if (moveInput.x != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else if (moveInput.x == 0)
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+        if(playerRb.linearVelocity.y < 0)
+        {
+            animator.SetBool("isFalling", true);
+        }
+        if (playerRb.linearVelocity.y >= 0)
+        {
+            animator.SetBool("isFalling", false);
         }
     }
 }

@@ -317,7 +317,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
-  moveInput: {x: 0, y: 0}
+  speed: 6
   jumpAction:
     m_Name: Jump
     m_Type: 0
@@ -390,8 +390,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.1710174, y: 4.161746, z: 1}
-  m_Center: {x: -0.15968406, y: 0.14371562, z: 0}
+  m_Size: {x: 2.4290018, y: 4.565549, z: 1}
+  m_Center: {x: -0.28867626, y: 0.26709986, z: 0}
 --- !u!224 &1213115413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1288178844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -614,7 +614,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
-  moveInput: {x: 0, y: 0}
+  speed: 5
   jumpAction:
     m_Name: Jump
     m_Type: 0
