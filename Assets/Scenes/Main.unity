@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61ff18f8761562439c92e90f110d681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  gameController: {fileID: 1370900561}
   animator: {fileID: 1213115414}
   moveAction:
     m_Name: Move
@@ -344,6 +345,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
     m_Priority: 0
+  isDead: 0
 --- !u!54 &1213115409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -563,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61ff18f8761562439c92e90f110d681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  gameController: {fileID: 1370900561}
   animator: {fileID: 0}
   moveAction:
     m_Name: Move
@@ -633,6 +636,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
     m_Priority: 0
+  isDead: 0
 --- !u!54 &1288178845
 Rigidbody:
   m_ObjectHideFlags: 0

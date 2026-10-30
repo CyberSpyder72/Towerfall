@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.SceneManagement;
 
 public class SpawnSection : MonoBehaviour
 {
@@ -68,5 +69,10 @@ public class SpawnSection : MonoBehaviour
             int index = UnityEngine.Random.Range(0, sections.Count);
             Instantiate(sections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
         }
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("Main");
     }
 }
