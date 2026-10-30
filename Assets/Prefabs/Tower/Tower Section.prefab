@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
   floor: -15
+  gameController: {fileID: 0}
 --- !u!1 &8848705074074898163
 GameObject:
   m_ObjectHideFlags: 0
