@@ -27,12 +27,12 @@ public class SpawnSection : MonoBehaviour
 
     //When sections start;
     private int easyStart = 0;
-    private int mediumStart = 15;
-    private int hardStart = 45;
+    private int mediumStart = 5;
+    private int hardStart = 15;
 
     //When sections end
-    private int easyEnd = 30;
-    private int mediumEnd = 60;
+    private int easyEnd = 10;
+    private int mediumEnd = 20;
 
 
     public int sectionPassed = 0;
@@ -94,7 +94,7 @@ public class SpawnSection : MonoBehaviour
                 int index = UnityEngine.Random.Range(0, easySections.Count);
                 Instantiate(easySections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
             }
-            else if (sectionPassed>mediumStart && sectionPassed<easyEnd)
+            else if (sectionPassed>=mediumStart && sectionPassed<easyEnd)
             {
                 int sectionToSpawn = UnityEngine.Random.Range(0, 2);
                 if(sectionToSpawn == 0)
@@ -108,12 +108,12 @@ public class SpawnSection : MonoBehaviour
                     Instantiate(mediumSections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
                 }
             }
-            else if (sectionPassed > easyEnd)
+            else if (sectionPassed >= easyEnd)
             {
                 int index = UnityEngine.Random.Range(0, mediumSections.Count);
                 Instantiate(mediumSections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
             }
-            else if (sectionPassed > hardStart && sectionPassed<mediumEnd)
+            else if (sectionPassed >= hardStart && sectionPassed<mediumEnd)
             {
                 int sectionToSpawn = UnityEngine.Random.Range(0, 2);
                 if (sectionToSpawn == 0)
@@ -127,7 +127,7 @@ public class SpawnSection : MonoBehaviour
                     Instantiate(hardSections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
                 }
             }
-            else if (sectionPassed > mediumEnd)
+            else if (sectionPassed >= mediumEnd)
             {
                 int index = UnityEngine.Random.Range(0, hardSections.Count);
                 Instantiate(hardSections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
