@@ -86,6 +86,22 @@ public class Player : MonoBehaviour
 
     private void CheckAnimationStates()
     {
+        if(playerRb.linearVelocity.y == 0)
+        {
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", false);
+        }
+        else if(playerRb.linearVelocity.y < 0f)
+        {
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isJumping", false);
+        }
+        else if (playerRb.linearVelocity.y > 0f)
+        {
+            animator.SetBool("isFalling", false);
+            animator.SetBool("isJumping", true);
+        }
+
         if (moveInput.x != 0)
         {
             animator.SetBool("isRunning", true);
@@ -93,15 +109,6 @@ public class Player : MonoBehaviour
         else if (moveInput.x == 0)
         {
             animator.SetBool("isRunning", false);
-        }
-
-        if(playerRb.linearVelocity.y < 0)
-        {
-            animator.SetBool("isFalling", true);
-        }
-        if (playerRb.linearVelocity.y >= 0)
-        {
-            animator.SetBool("isFalling", false);
         }
     }
 }
