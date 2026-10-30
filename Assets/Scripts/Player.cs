@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
 
     //Game Overs
-    private float killFloor = -15;
+    private float killFloor = -20;
     public bool isDead = false;
     
 
