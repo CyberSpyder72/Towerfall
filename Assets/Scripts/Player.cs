@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    //public float fallSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject gameController; //Reference to the game controller
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
 
     public InputAction jumpAction;
     private float jumpForce = 10;
-    private bool IsOnGround = true;
+    public bool IsOnGround = true;
 
     private float zCenter = -2; //To make sure they don't become misaligned
     //private Quaternion startRotation = Quaternion.Euler(0,0,0);
@@ -44,10 +45,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //fallSpeed = playerRb.linearVelocity.y;
 
         //transform.rotation = startRotation;
-        if(transform.position.z != zCenter)
+        if (transform.position.z != zCenter)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zCenter);
         }
@@ -99,17 +100,21 @@ public class Player : MonoBehaviour
 
     private void CheckAnimationStates()
     {
+        if (IsOnGround == true)
+        {
+            animator.SetBool("isGrounded", true);
+        }
         if(playerRb.linearVelocity.y == 0)
         {
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
         }
-        else if(playerRb.linearVelocity.y < 0f)
+        else if(playerRb.linearVelocity.y < 0 && !IsOnGround)
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
         }
-        else if (playerRb.linearVelocity.y > 0f)
+        else if (playerRb.linearVelocity.y > 0)
         {
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", true);
