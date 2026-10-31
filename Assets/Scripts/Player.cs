@@ -5,6 +5,7 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    //public bool isFalling = false;
     //public float fallSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -75,10 +76,12 @@ public class Player : MonoBehaviour
             IsOnGround = false;
         }
 
-        CheckAnimationStates(); 
+        CheckAnimationStates();
+        
+
 
         //Dying
-        if(transform.position.y < killFloor)
+        if (transform.position.y < killFloor)
         {
             isDead = true;
             gameController.GetComponent<SpawnSection>().GameOver();
@@ -97,14 +100,19 @@ public class Player : MonoBehaviour
             playerRb.AddForce(bumpPlayers * playerBumpForce, ForceMode.Impulse);
         }
     }
-
+    
     private void CheckAnimationStates()
     {
         if (IsOnGround == true)
         {
             animator.SetBool("isGrounded", true);
         }
-        if(playerRb.linearVelocity.y == 0)
+        if (IsOnGround == false)
+        {
+            animator.SetBool("isGrounded", false);
+        }
+
+        if (playerRb.linearVelocity.y == 0)
         {
             animator.SetBool("isFalling", false);
             animator.SetBool("isJumping", false);
@@ -113,6 +121,7 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("isFalling", true);
             animator.SetBool("isJumping", false);
+            //isFalling = true;
         }
         else if (playerRb.linearVelocity.y > 0)
         {
