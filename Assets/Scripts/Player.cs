@@ -125,6 +125,8 @@ public class Player : MonoBehaviour
                 //Middle attack
                 Instantiate(fireball, new Vector3 (transform.position.x + attackOffset, transform.position.y), transform.rotation);
                 attackCooldown = attackCooldownSet;
+                animator.SetTrigger("isFiring");
+
             }
         }
         
@@ -218,6 +220,15 @@ public class Player : MonoBehaviour
         else if (moveInput.x == 0)
         {
             animator.SetBool("isRunning", false);
+        }
+
+        if(attackCooldown <= 0)
+        {
+            animator.SetBool("coolDownDone", true);
+        }
+        else if (attackCooldown > 0)
+        {
+            animator.SetBool("coolDownDone", false);
         }
     }
 }
