@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
     private float speed = 5;
     private float zCenter = -2;
+    private float outOfBounds = 40; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,6 +22,11 @@ public class Fireball : MonoBehaviour
         if (transform.position.z != zCenter)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, zCenter);
+        }
+
+        if(Mathf.Abs(transform.position.x) > outOfBounds)
+        {
+            Destroy(gameObject);
         }
     }
 
