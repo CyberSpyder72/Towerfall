@@ -1,4 +1,6 @@
 using Unity.Mathematics;
+using UnityEditor.AdaptivePerformance.Editor;
+using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -31,9 +33,19 @@ public class Player : MonoBehaviour
     private float playerBumpForce = 2.5f; //How much players push eachother
 
 
+    //Attacking
+    public InputAction attackAction;
+    private float attackOffset;
+    private float attackOffsetValue = 2;
+    private float attackForce = 10;
+    private float attackCooldown;
+    private float attackCooldownSet = 2;
+    public GameObject fireball;
+
     //Game Overs
     private float killFloor = -20;
     public bool isDead = false;
+    
     
 
     void Start()
@@ -41,6 +53,7 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         moveAction.Enable();
         jumpAction.Enable();
+        attackAction.Enable();
     }
 
     // Update is called once per frame
@@ -61,10 +74,12 @@ public class Player : MonoBehaviour
         if (moveInput.x == -1)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0); ;     //these two "if" statements change the direction the player is facing in game. this is good for animations.
+            attackOffset = -attackOffsetValue;
         }
         else if (moveInput.x == 1)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0); ;
+            attackOffset = attackOffsetValue;
         }
 
 
@@ -77,11 +92,37 @@ public class Player : MonoBehaviour
         }
 
         CheckAnimationStates();
+
+
+        //Attacking
+        if (attackAction.triggered && attackCooldown<=0)
+        {
+            if (moveInput.y == 1)
+            {
+                //Upward attack
+                attackCooldown = attackCooldownSet;
+            }
+            else if (moveInput.y == -1)
+            {
+                //Downward attack
+                attackCooldown = attackCooldownSet;
+            }
+            else
+            {
+                //Middle attack
+                Instantiate(fireball, new Vector3 (transform.position.x + attackOffset, transform.position.y), transform.rotation);
+                attackCooldown = attackCooldownSet;
+            }
+        }
         
+        if(attackCooldown > 0)
+        {
+            attackCooldown -= Time.deltaTime;
+        }
 
 
-        //Dying
-        if (transform.position.y < killFloor)
+            //Dying
+            if (transform.position.y < killFloor)
         {
             isDead = true;
             gameController.GetComponent<SpawnSection>().GameOver();
@@ -98,6 +139,11 @@ public class Player : MonoBehaviour
         {
             Vector3 bumpPlayers = (transform.position - collision.gameObject.transform.position);
             playerRb.AddForce(bumpPlayers * playerBumpForce, ForceMode.Impulse);
+        }
+        else if (collision.gameObject.CompareTag("Attack"))
+        {
+            Vector3 bumpPlayers = (transform.position - collision.gameObject.transform.position);
+            playerRb.AddForce(bumpPlayers * attackForce, ForceMode.Impulse);
         }
     }
     

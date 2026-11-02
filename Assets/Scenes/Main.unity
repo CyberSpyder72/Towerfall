@@ -505,7 +505,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: up
       m_Id: 05188f55-c90e-4687-98b8-aa3950f221ff
-      m_Path: 
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -513,7 +513,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: down
       m_Id: 3bf84cdf-efdd-47bf-8008-9faa3dd40086
-      m_Path: 
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -565,7 +565,34 @@ MonoBehaviour:
     m_Flags: 0
     m_Priority: 0
   IsOnGround: 1
-  isDead: 0
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: a26fb175-e21c-4492-bb38-4775c56f75fd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7c88f98f-40f6-47f2-9882-786ec2fdc8af
+      m_Path: <Keyboard>/5
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 2d944dfc-110a-4dbb-934d-41538faa7458
+      m_Path: <Keyboard>/numpad0
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
+  isDead: 1
 --- !u!54 &1213115409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -622,7 +649,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213115407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2.75}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -805,7 +832,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: up
       m_Id: 9a88bb42-ab9d-4417-9809-302a86c5abc4
-      m_Path: 
+      m_Path: <Keyboard>/w
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -813,7 +840,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: down
       m_Id: d9bfad4d-be4e-4fef-a719-143f29dcb0c5
-      m_Path: 
+      m_Path: <Keyboard>/s
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -857,6 +884,25 @@ MonoBehaviour:
     m_Flags: 0
     m_Priority: 0
   IsOnGround: 1
+  attackAction:
+    m_Name: Attack
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c1d1414c-c324-4589-8585-6c3676cc4de2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 163d1700-ce81-47bd-9fa3-d4df60306ffd
+      m_Path: <Keyboard>/v
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Attack
+      m_Flags: 0
+    m_Flags: 0
+    m_Priority: 0
+  fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
   isDead: 0
 --- !u!54 &1288178845
 Rigidbody:
@@ -904,7 +950,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.3059568, y: 4.565549, z: 1}
+  m_Size: {x: 2.182916, y: 4.565549, z: 1}
   m_Center: {x: 0.2957778, y: 0.26709986, z: 0}
 --- !u!4 &1288178849
 Transform:
