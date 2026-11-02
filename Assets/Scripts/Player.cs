@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         if (isOnLadder == true)
         {
             transform.Translate(Vector3.down * Time.deltaTime);
-            transform.Translate(Vector3.up * Mathf.Abs(moveInput.y) * Time.deltaTime * speed);
+            transform.Translate(Vector3.up * moveInput.y * Time.deltaTime * speed);
         }
 
 
@@ -158,22 +158,30 @@ public class Player : MonoBehaviour
             Vector3 bumpPlayers = (transform.position - collision.gameObject.transform.position);
             playerRb.AddForce(bumpPlayers * attackForce, ForceMode.Impulse);
         }
-        else if (collision.gameObject.CompareTag("Ladder"))
-        {
-            playerRb.useGravity = false;
-            isOnLadder = true;
-        }
+        
         
     }
 
-    private void OnCollisionExit(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Ladder")){
+        if (other.gameObject.CompareTag("Ladder"))
+        {
+            playerRb.useGravity = false;
+            playerRb.AddForce(-playerRb.GetAccumulatedForce(), ForceMode.Impulse);
+            isOnLadder = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ladder")){
             playerRb.useGravity = true;
             isOnLadder = false;
         }
        
     }
+
+
 
     private void CheckAnimationStates()
     {

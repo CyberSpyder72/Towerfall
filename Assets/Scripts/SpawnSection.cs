@@ -88,7 +88,7 @@ public class SpawnSection : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
 
-
+            /*
             if(sectionPassed < mediumStart)
             {
                 int index = UnityEngine.Random.Range(0, easySections.Count);
@@ -132,8 +132,9 @@ public class SpawnSection : MonoBehaviour
                 int index = UnityEngine.Random.Range(0, hardSections.Count);
                 Instantiate(hardSections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
             }
-            //int index = UnityEngine.Random.Range(0, easySections.Count);
-            //Instantiate(easySections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
+            */
+            int index = UnityEngine.Random.Range(0, easySections.Count);
+            Instantiate(easySections[index], sectionSpawnPos, Quaternion.Euler(270f, 0, 0));
         }
     }
 
