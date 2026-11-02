@@ -26,9 +26,10 @@ public class Player : MonoBehaviour
     public InputAction jumpAction;
     private float jumpForce = 10;
     public bool IsOnGround = true;
+    public bool isOnLadder = false;
 
     private float zCenter = -2; //To make sure they don't become misaligned
-    //private Quaternion startRotation = Quaternion.Euler(0,0,0);
+    private Quaternion lastRotation;
 
     private float playerBumpForce = 2.5f; //How much players push eachother
 
@@ -67,20 +68,32 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zCenter);
         }
 
+        transform.rotation = lastRotation;
+
         //Movement
         moveInput = moveAction.ReadValue<Vector2>();
-        transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed); 
+        transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed);
+
+        if (isOnLadder == true)
+        {
+            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.up * Mathf.Abs(moveInput.y) * Time.deltaTime * speed);
+        }
+
 
         if (moveInput.x == -1)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0); ;     //these two "if" statements change the direction the player is facing in game. this is good for animations.
+            transform.rotation = Quaternion.Euler(0, 180, 0);   //these two "if" statements change the direction the player is facing in game. this is good for animations.
+            lastRotation = Quaternion.Euler(0, 180, 0);
             attackOffset = -attackOffsetValue;
         }
         else if (moveInput.x == 1)
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0); ;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            lastRotation = Quaternion.Euler(0, 0, 0);
             attackOffset = attackOffsetValue;
         }
+        
 
 
         //Jumping
@@ -145,8 +158,23 @@ public class Player : MonoBehaviour
             Vector3 bumpPlayers = (transform.position - collision.gameObject.transform.position);
             playerRb.AddForce(bumpPlayers * attackForce, ForceMode.Impulse);
         }
+        else if (collision.gameObject.CompareTag("Ladder"))
+        {
+            playerRb.useGravity = false;
+            isOnLadder = true;
+        }
+        
     }
-    
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ladder")){
+            playerRb.useGravity = true;
+            isOnLadder = false;
+        }
+       
+    }
+
     private void CheckAnimationStates()
     {
         if (IsOnGround == true)
