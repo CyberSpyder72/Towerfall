@@ -5,7 +5,7 @@ public class MoveDown : MonoBehaviour
     private SpawnSection spawnSection;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public int floor; //When do we want to remove this section
+    private float floor = -20; //When do we want to remove this section
 
     private GameObject gameController; //References the game controller
 
