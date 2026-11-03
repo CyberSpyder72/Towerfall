@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     private float attackCooldown;
     private float attackCooldownSet = 2;
     public GameObject fireball;
+    public GameObject bomb;
 
     //Game Overs
     private float killFloor = -20;
@@ -113,7 +114,11 @@ public class Player : MonoBehaviour
             if (moveInput.y == 1)
             {
                 //Upward attack
+                GameObject newBomb = Instantiate(bomb, new Vector3(transform.position.x + attackOffset, transform.position.y), transform.rotation);
+                var bombScript = bomb.GetComponent<Bomb>();
+                bombScript.direction = attackOffset;
                 attackCooldown = attackCooldownSet;
+                animator.SetTrigger("isFiring");
             }
             else if (moveInput.y == -1)
             {
