@@ -537,6 +537,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  moveInput: {x: 0, y: 0}
   speed: 6
   jumpAction:
     m_Name: Jump
@@ -594,7 +595,7 @@ MonoBehaviour:
     m_Priority: 0
   fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
   bomb: {fileID: 9107833577916741415, guid: fae39fce3016c3d4881edb5f1c17d0e8, type: 3}
-  bounceBall: {fileID: 0}
+  bounceBall: {fileID: 2686141935501782320, guid: bddf982001a088c4d8ac51b0566ea043, type: 3}
   isDead: 1
 --- !u!54 &1213115409
 Rigidbody:
@@ -867,6 +868,7 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
     m_Priority: 0
+  moveInput: {x: 0, y: 0}
   speed: 6
   jumpAction:
     m_Name: Jump
@@ -908,7 +910,7 @@ MonoBehaviour:
     m_Priority: 0
   fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
   bomb: {fileID: 9107833577916741415, guid: fae39fce3016c3d4881edb5f1c17d0e8, type: 3}
-  bounceBall: {fileID: 0}
+  bounceBall: {fileID: 2686141935501782320, guid: bddf982001a088c4d8ac51b0566ea043, type: 3}
   isDead: 0
 --- !u!54 &1288178845
 Rigidbody:
@@ -1625,7 +1627,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4543c39360ad9a34d929f8c2829ce179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveDown
-  floor: -17
 --- !u!65 &1990092716
 BoxCollider:
   m_ObjectHideFlags: 0

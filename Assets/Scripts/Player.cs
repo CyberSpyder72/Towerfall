@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
 
     public InputAction moveAction;
-    private Vector2 moveInput;
+    public Vector2 moveInput;
     public int speed = 5;
     
 
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private Quaternion lastRotation;
 
     private float playerBumpForce = 2.5f; //How much players push eachother
+
 
 
     //Attacking
@@ -93,13 +94,13 @@ public class Player : MonoBehaviour
         }
 
 
-        if (moveInput.x == -1)
+        if (moveInput.x < 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);   //these two "if" statements change the direction the player is facing in game. this is good for animations.
             lastRotation = Quaternion.Euler(0, 180, 0);
             attackOffset = -attackOffsetValue;
         }
-        else if (moveInput.x == 1)
+        else if (moveInput.x > 0)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             lastRotation = Quaternion.Euler(0, 0, 0);
@@ -132,7 +133,7 @@ public class Player : MonoBehaviour
                 animator.SetTrigger("isFiring");
             }
             else if (moveInput.y == -1)
-            {
+            { 
                 //Downward attack
                 GameObject newBounceBall = Instantiate(bounceBall, new Vector3(transform.position.x + attackOffset, transform.position.y), transform.rotation);
                 var bounceBallScript = newBounceBall.GetComponent<BounceBall>();
