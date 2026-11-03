@@ -84,6 +84,15 @@ public class Player : MonoBehaviour
         transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed);
 
 
+        if (isOnLadder == true)
+        {
+
+            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.up * moveInput.y * Time.deltaTime * speed);
+
+        }
+
+
         if (moveInput.x == -1)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);   //these two "if" statements change the direction the player is facing in game. this is good for animations.
@@ -96,16 +105,6 @@ public class Player : MonoBehaviour
             lastRotation = Quaternion.Euler(0, 0, 0);
             attackOffset = attackOffsetValue;
         }
-
-        if (isOnLadder == true)
-        {
-
-            transform.Translate(Vector3.down * Time.deltaTime);
-            transform.Translate(Vector3.up * moveInput.y * Time.deltaTime * speed);
-
-        }
-
-
         
 
 
@@ -126,7 +125,7 @@ public class Player : MonoBehaviour
             if (moveInput.y == 1)
             {
                 //Upward attack
-                GameObject newBomb = Instantiate(bomb, new Vector3(transform.position.x + attackOffset, transform.position.y), transform.rotation);
+                GameObject newBomb = Instantiate(bomb, new Vector3(transform.position.x + attackOffset, transform.position.y + math.abs(attackOffset)), transform.rotation);
                 var bombScript = newBomb.GetComponent<Bomb>();
                 bombScript.direction = attackOffset;
                 attackCooldown = attackCooldownSet;
