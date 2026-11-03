@@ -1,6 +1,4 @@
 using Unity.Mathematics;
-using UnityEditor.AdaptivePerformance.Editor;
-using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
