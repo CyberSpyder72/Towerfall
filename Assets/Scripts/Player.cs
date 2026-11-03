@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Ladder"))
         {
             playerRb.useGravity = false;
-            playerRb.AddForce(-playerRb.GetAccumulatedForce(), ForceMode.Impulse);
+            //playerRb.AddForce(-playerRb.GetAccumulatedForce(), ForceMode.Impulse);
             isOnLadder = true;
         }
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 355562263762684322}
   - component: {fileID: 2430124487735962026}
   m_Layer: 0
-  m_Name: TowerEasy5
+  m_Name: TowerMoving
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
