@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    //public GameObject groundGrass;
+    //private Rigidbody groundRb;
+    //public float groundVelocity;
     //public bool isFalling = false;
     //public float fallSpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -53,6 +56,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+
+        //groundRb = groundGrass.GetComponent<Rigidbody>();
+        //GetGrassVelocity();
+
         moveAction.Enable();
         jumpAction.Enable();
         attackAction.Enable();
@@ -181,16 +188,11 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Ladder")){
+        if (other.gameObject.CompareTag("Ladder"))
+        {
             playerRb.useGravity = true;
             isOnLadder = false;
         }
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            playerRb.useGravity = true;
-            IsOnGround = false;
-        }
-
     }
 
 
@@ -250,4 +252,10 @@ public class Player : MonoBehaviour
             animator.SetBool("coolDownDone", false);
         }
     }
+    /*
+    private void GetGrassVelocity()
+    {
+        groundVelocity = groundRb.linearVelocity.y;
+    }
+    */
 }
