@@ -185,13 +185,27 @@ public class Player : MonoBehaviour
             playerRb.useGravity = true;
             isOnLadder = false;
         }
-       
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            playerRb.useGravity = true;
+            IsOnGround = false;
+        }
+
     }
 
 
 
     private void CheckAnimationStates()
     {
+        if (isOnLadder)
+        {
+            animator.SetBool("isClimbingUp", true);
+        }
+        else if (!isOnLadder)
+        {
+            animator.SetBool("isClimbingUp", false);
+        }
+
         if (IsOnGround == true)
         {
             animator.SetBool("isGrounded", true);
