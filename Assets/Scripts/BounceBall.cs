@@ -46,8 +46,6 @@ public class BounceBall : MonoBehaviour
         {
             Rigidbody platformRb = collision.gameObject.GetComponent<Rigidbody>();
             Vector3 bounce = (collision.gameObject.transform.position - transform.position).normalized;
-
-           // ballRb.AddForce(bounce * ballForce * 10, ForceMode.Impulse);
         }
         else
         {
