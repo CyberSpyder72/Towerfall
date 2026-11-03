@@ -594,7 +594,8 @@ MonoBehaviour:
     m_Priority: 0
   fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
   bomb: {fileID: 9107833577916741415, guid: fae39fce3016c3d4881edb5f1c17d0e8, type: 3}
-  isDead: 1
+  bounceBall: {fileID: 2686141935501782320, guid: bddf982001a088c4d8ac51b0566ea043, type: 3}
+  isDead: 0
 --- !u!54 &1213115409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -907,6 +908,7 @@ MonoBehaviour:
     m_Priority: 0
   fireball: {fileID: 8279914472008279804, guid: 1ae2f586558b9a7489356e5671e4c7a6, type: 3}
   bomb: {fileID: 9107833577916741415, guid: fae39fce3016c3d4881edb5f1c17d0e8, type: 3}
+  bounceBall: {fileID: 2686141935501782320, guid: bddf982001a088c4d8ac51b0566ea043, type: 3}
   isDead: 0
 --- !u!54 &1288178845
 Rigidbody:

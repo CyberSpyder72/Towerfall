@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     private float attackCooldownSet = 2;
     public GameObject fireball;
     public GameObject bomb;
+    public GameObject bounceBall;
 
     //Game Overs
     private float killFloor = -20;
@@ -82,12 +83,6 @@ public class Player : MonoBehaviour
         moveInput = moveAction.ReadValue<Vector2>();
         transform.Translate(Vector3.right * Mathf.Abs(moveInput.x) * Time.deltaTime * speed);
 
-        if (isOnLadder == true)
-        {
-            transform.Translate(Vector3.down * Time.deltaTime);
-            transform.Translate(Vector3.up * moveInput.y * Time.deltaTime * speed);
-        }
-
 
         if (moveInput.x == -1)
         {
@@ -101,6 +96,16 @@ public class Player : MonoBehaviour
             lastRotation = Quaternion.Euler(0, 0, 0);
             attackOffset = attackOffsetValue;
         }
+
+        if (isOnLadder == true)
+        {
+
+            transform.Translate(Vector3.down * Time.deltaTime);
+            transform.Translate(Vector3.up * moveInput.y * Time.deltaTime * speed);
+
+        }
+
+
         
 
 
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour
             {
                 //Upward attack
                 GameObject newBomb = Instantiate(bomb, new Vector3(transform.position.x + attackOffset, transform.position.y), transform.rotation);
-                var bombScript = bomb.GetComponent<Bomb>();
+                var bombScript = newBomb.GetComponent<Bomb>();
                 bombScript.direction = attackOffset;
                 attackCooldown = attackCooldownSet;
                 animator.SetTrigger("isFiring");
@@ -130,7 +135,11 @@ public class Player : MonoBehaviour
             else if (moveInput.y == -1)
             {
                 //Downward attack
+                GameObject newBounceBall = Instantiate(bounceBall, new Vector3(transform.position.x + attackOffset, transform.position.y), transform.rotation);
+                var bounceBallScript = newBounceBall.GetComponent<BounceBall>();
+                bounceBallScript.direction = attackOffset;
                 attackCooldown = attackCooldownSet;
+                animator.SetTrigger("isFiring");
             }
             else
             {
@@ -182,7 +191,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Ladder"))
         {
             playerRb.useGravity = false;
-            //playerRb.AddForce(-playerRb.GetAccumulatedForce(), ForceMode.Impulse);
+            playerRb.linearVelocity = Vector3.zero;
             isOnLadder = true;
         }
     }
