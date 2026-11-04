@@ -8,6 +8,7 @@ public class EscScript : MonoBehaviour
     void Start()
     {
         escInput.Enable();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
