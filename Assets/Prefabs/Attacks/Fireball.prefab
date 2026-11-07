@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 8279914472008279804}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.41, y: 3.71, z: -2.38}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalPosition: {x: 20.41, y: 3.71, z: -2.3798}
+  m_LocalScale: {x: 0.14, y: 0.14, z: 0.13020916}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24dfe5e816b17fb47a865c63bbfd63cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fireball
+  speed: 6.5
 --- !u!54 &-3245290436626770604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -816,9 +817,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0.5610059, y: -0.00000072161356, z: -5.2324314}
+    m_Position: {x: 0.3626175, y: -0.27267027, z: -5.2364397}
     m_Rotation: {x: -0, y: 268.84387, z: 0}
-    m_Scale: {x: 13.08065, y: 9.732683, z: 1}
+    m_Scale: {x: 13.08065, y: 7.786147, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1463,9 +1464,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.59607846, g: 0.21960786, b: 0.16862746, a: 1}
+        key0: {r: 0.72156864, g: 0.54509807, b: 0.20784315, a: 1}
         key1: {r: 0.6745098, g: 0.427451, b: 0.1764706, a: 1}
-        key2: {r: 0.72156864, g: 0.54509807, b: 0.20784315, a: 0}
+        key2: {r: 0.59607846, g: 0.21960786, b: 0.16862746, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private float speed = 5;
+    public float speed = 5;
     private float zCenter = -2;
     private float outOfBounds = 40; 
 
