@@ -2082,7 +2082,7 @@ MonoBehaviour:
   second: {fileID: 154617042}
   startGame: {fileID: 2133228824}
   next: {fileID: 1492484220}
-  back: {fileID: 697492286}
+  back: {fileID: 30326413}
 --- !u!1 &1783177732
 GameObject:
   m_ObjectHideFlags: 0
