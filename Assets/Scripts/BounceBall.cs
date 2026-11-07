@@ -9,6 +9,7 @@ public class BounceBall : MonoBehaviour
     public float direction = 1;
     private Rigidbody ballRb;
 
+    public GameObject pop;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,5 +52,10 @@ public class BounceBall : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(pop, transform.position, transform.rotation);
     }
 }
