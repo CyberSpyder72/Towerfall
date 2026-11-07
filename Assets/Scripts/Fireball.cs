@@ -30,12 +30,12 @@ public class Fireball : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        //if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
-        //{
+        if (other.gameObject.CompareTag("Player"))
+        {
             Destroy(gameObject);
-       // }
+        }
         
     }
 }

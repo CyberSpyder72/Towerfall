@@ -183,8 +183,20 @@ public class Player : MonoBehaviour
         
     }
 
-
     private void OnTriggerEnter(Collider other)
+    {
+      
+        if (other.gameObject.CompareTag("Attack"))
+        {
+            Vector3 bumpPlayers = (transform.position - other.gameObject.transform.position);
+            playerRb.AddForce(bumpPlayers * attackForce, ForceMode.Impulse);
+        }
+
+
+    }
+
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Ladder"))
         {

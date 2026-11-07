@@ -1797,6 +1797,8 @@ MonoBehaviour:
   - {fileID: 6876203702025214674, guid: 4c37efcf81b9c294098feefb03aa45d6, type: 3}
   - {fileID: 1628642874410682595, guid: f99f24d4878f7584c8e98a808ab80d83, type: 3}
   - {fileID: 8506602926535815262, guid: 8af46bb85f495a24ebc12b5efa523ae7, type: 3}
+  - {fileID: 1650473550497632957, guid: f4de2d3866821174f893ecc78aab56c5, type: 3}
+  - {fileID: 6823625534942753219, guid: 093fdc1d08d41b74db1867a3051a178e, type: 3}
   mediumSections:
   - {fileID: 5529219285261353154, guid: bb75d03686f898b4a9b8641f39d7d2c0, type: 3}
   hardSections:
