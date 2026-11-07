@@ -140,6 +140,6 @@ public class SpawnSection : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("TitleScene");
     }
 }
