@@ -2,12 +2,22 @@ using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class SpawnSection : MonoBehaviour
 {
+    public GameObject playAgain;
+    public GameObject ui; 
+    public TextMeshProUGUI winText;
+    public GameObject bluePlayer;
+    public GameObject redPlayer;
+    
+
     public float waitTime; // how long should the corrutine wait before spawning another section
     public float sectionHeight; //how tall is the section in units from the bottom to the top
     public float sectionSpeed; // how fast does each section move downwards
@@ -140,6 +150,37 @@ public class SpawnSection : MonoBehaviour
 
     public void GameOver()
     {
+        
+
+        if (bluePlayer.transform.position.y > redPlayer.transform.position.y)
+        {
+            winText.text = "Blue player wins!";
+            bluePlayer.GetComponent<Player>().enabled = false;
+        }
+        else
+        {
+            winText.text = "Red player wins!";
+            redPlayer.GetComponent<Player>().enabled = false;
+        }
+        ui.SetActive(true);
+
+        Awaitable.NextFrameAsync();
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(playAgain);
+
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    public void TitleScreen()
+    {
         SceneManager.LoadScene("TitleScene");
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

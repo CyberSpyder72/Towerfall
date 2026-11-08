@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
 
     public InputAction jumpAction;
     private float jumpForce = 10;
-    public bool IsOnGround = true;
+    public bool IsOnGround = false;
     public bool isOnLadder = false;
 
     private float zCenter = -2; //To make sure they don't become misaligned
@@ -63,6 +63,10 @@ public class Player : MonoBehaviour
         moveAction.Enable();
         jumpAction.Enable();
         attackAction.Enable();
+
+        Awaitable.NextFrameAsync();
+
+        IsOnGround = true; 
     }
 
     // Update is called once per frame
