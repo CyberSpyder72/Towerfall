@@ -155,13 +155,17 @@ public class SpawnSection : MonoBehaviour
         if (bluePlayer.transform.position.y > redPlayer.transform.position.y)
         {
             winText.text = "Blue player wins!";
-            bluePlayer.GetComponent<Player>().enabled = false;
+            winText.faceColor = new Color32(55, 133, 168, 255);
         }
         else
         {
             winText.text = "Red player wins!";
-            redPlayer.GetComponent<Player>().enabled = false;
+            winText.faceColor = new Color32(188, 59, 56, 255);
         }
+
+        redPlayer.GetComponent<Player>().enabled = false;
+        bluePlayer.GetComponent<Player>().enabled = false;
+        winText.ForceMeshUpdate();
         ui.SetActive(true);
 
         Awaitable.NextFrameAsync();
