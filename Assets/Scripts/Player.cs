@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     private float playerBumpForce = 2.5f; //How much players push eachother
 
+    public float playerStartDirection;
 
 
     //Attacking
@@ -66,7 +67,10 @@ public class Player : MonoBehaviour
 
         Awaitable.NextFrameAsync();
 
-        IsOnGround = true; 
+        IsOnGround = true;
+
+        transform.rotation = Quaternion.Euler(0, playerStartDirection, 0);
+        lastRotation = Quaternion.Euler(0, playerStartDirection, 0);
     }
 
     // Update is called once per frame
@@ -95,10 +99,10 @@ public class Player : MonoBehaviour
 
         }
 
-
+        //these two "if" statements change the direction the player is facing in game. this is good for animations.
         if (moveInput.x < 0)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);   //these two "if" statements change the direction the player is facing in game. this is good for animations.
+            transform.rotation = Quaternion.Euler(0, 180, 0);   
             lastRotation = Quaternion.Euler(0, 180, 0);
             attackOffset = -attackOffsetValue;
         }
@@ -167,6 +171,7 @@ public class Player : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground") && transform.position.y > collision.transform.position.y)
@@ -186,6 +191,8 @@ public class Player : MonoBehaviour
         
         
     }
+
+    
 
     private void OnTriggerEnter(Collider other)
     {
