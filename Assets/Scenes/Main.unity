@@ -1653,6 +1653,7 @@ MonoBehaviour:
     m_Priority: 0
   IsOnGround: 1
   isOnLadder: 0
+  playerStartDirection: 180
   attackAction:
     m_Name: Attack
     m_Type: 0
@@ -2109,6 +2110,7 @@ MonoBehaviour:
     m_Priority: 0
   IsOnGround: 1
   isOnLadder: 0
+  playerStartDirection: 0
   attackAction:
     m_Name: Attack
     m_Type: 0
