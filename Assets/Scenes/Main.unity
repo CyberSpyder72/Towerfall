@@ -1642,8 +1642,8 @@ MonoBehaviour:
       m_Action: Jump
       m_Flags: 0
     - m_Name: 
-      m_Id: d8e1f9d0-36d7-4b88-86f6-ea1ff97cf561
-      m_Path: <Keyboard>/rightCtrl
+      m_Id: 83af6017-e531-4ba4-bc2f-c5ccb508c4b6
+      m_Path: <Keyboard>/shift
       m_Interactions: 
       m_Processors: 
       m_Groups: 
